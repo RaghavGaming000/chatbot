@@ -1,0 +1,15 @@
+[Unit]
+Description=Headburst Chatbot
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/chatbot
+Environment=PORT=3101
+Environment=CHAT_MODEL=qwen2.5:1.5b
+ExecStart=/usr/bin/node /opt/chatbot/server.js
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
